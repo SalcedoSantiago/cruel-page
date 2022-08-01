@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
             to: [
                 {
                     name: 'Tapas',
-                    to: 'tapas'
+                    to: '/tapas'
                 },
                 {
                     name: 'Principales',
