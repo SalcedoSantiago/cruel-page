@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Maharlika;
+    src: url(./assets/maharlika-regular.ttf);
+}
+
+.swiper-pagination-bullet {
+    border-radius: 4px !important;
+    height: 6px !important;
+    background-color: #f2ecd3;
+    width: 35px !important;
+}
+
+.menu-slider {
+    height: 70vh;
+    width: 90vw;
+}

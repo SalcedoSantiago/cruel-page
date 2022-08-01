@@ -26,7 +26,7 @@ const GridCotecels = () => {
     ]
 
     return (
-        <Box pt={'60px'}>
+        <Box pt={'60px'} bg="#121212" pb="60px">
             <Heading
                 pb={'40px'}
                 textAlign={'center'}

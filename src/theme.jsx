@@ -15,14 +15,14 @@ export default extendTheme({
         dark: '#1e202c'
     },
     fonts: {
-        body: `'Karla', sans-serif`,
-        heading: `'League Spartan',sans-serif`
+        body: `Maharlika, sans-serif`,
+        heading: `Maharlika, sans-serif`
     },
     styles: {
         global: {
             body: {
-                bg: '#121212',
-                color: 'white',
+                bg: '#232427',
+                color: '#ffffff',
             },
             a: {
                 color: '#5EECBF',

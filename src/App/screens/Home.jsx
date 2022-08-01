@@ -34,11 +34,21 @@ const Home = () => {
                     >
                         <Flex
                             justifyContent={'center'}
+                            wrap='wrap'
                         >
+
+                            <Image
+                                src={'https://cruel.com.ar/static/media/iconosbebidas.a67091085e861e6e81ddfcbedee04f69.svg'}
+                                alt="tragos"
+                                display={'block'}
+                                pb="22px"
+                                px="130px"
+                            />
                             <Heading
                                 maxW="250px"
                                 fontWeight={400}
                                 textAlign={'center'}
+                                fontSize="24px"
                             >
                                 La mejor coctelería de autor y las mejores tapas de la ciudad
                             </Heading>
@@ -52,7 +62,7 @@ const Home = () => {
                         alt="image host"
                     />
 
-                    <Stack spacing={4} justify='center' align={'center'} pt="60px">
+                    <Stack spacing={4} justify='center' align={'center'} py="60px">
                         <Divider w="140px" />
                         <Heading>Nuestra ubicacion</Heading>
                         <Text>calle 45 e/ 13 y 14 n940</Text>

@@ -1,35 +1,43 @@
 import React from 'react'
-import { Container, Stack, Box, Image, Flex, Text, Heading, FormControl, FormLabel, Input, Button, Select, SimpleGrid, chakra, GridItem } from '@chakra-ui/react'
+import { Container, Stack, Box, Image, Flex, Text, Heading, FormControl, FormLabel, Input, Button, Select, SimpleGrid, chakra, GridItem, Divider } from '@chakra-ui/react'
 
 function Form() {
     return (
-        <Box pt={'120px'} pb={'30px'}>
-            <Heading
-                textAlign={'center'}
-            >Queres hacer una reserva?</Heading>
+        <Box pt={'60px'} pb={'30px'}>
+            <Flex
+                justifyContent={'center'}
+                align={'center'}
+                flexWrap='wrap'
+            >
+                <Divider w="160px" />
+                <Heading
+                    textAlign={'center'}
+                    color={'#ffffff'}
+                    py={3}
+                    w="100%"
+                    fontSize="22px"
+                    fontWeight={300}
+                >¿Querés hacer una reserva?</Heading>
+            </Flex>
+
             <chakra.form
                 method="POST"
-                shadow="base"
                 overflow={"hidden"}
             >
                 <Stack
                     px={4}
                     py={5}
-                    bg="#141517"
+                    bg="#232427"
                     spacing={6}
                 >
                     <SimpleGrid columns={6} spacing={6}>
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
                                 htmlFor="first_name"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
-                                A nombre de:
+                                A nombre de
                             </FormLabel>
                             <Input
                                 type="text"
@@ -38,22 +46,17 @@ function Form() {
                                 autoComplete="given-name"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             />
                         </FormControl>
 
-                        <FormControl as={GridItem} colSpan={6}>
+                        <FormControl as={GridItem} colSpan={4}>
                             <FormLabel
                                 htmlFor="email_address"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
                                 Dia
                             </FormLabel>
@@ -65,22 +68,17 @@ function Form() {
                                 autoComplete="email"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             />
                         </FormControl>
 
-                        <FormControl as={GridItem} colSpan={6}>
+                        <FormControl as={GridItem} colSpan={8}>
                             <FormLabel
                                 htmlFor="hora"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
                                 Hora
                             </FormLabel>
@@ -91,22 +89,17 @@ function Form() {
                                 autoComplete="email"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             />
                         </FormControl>
 
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
                                 htmlFor="cant_person"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
                                 ¿Para cuantas personas?
                             </FormLabel>
@@ -117,10 +110,9 @@ function Form() {
                                 placeholder="Select option"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             >
                                 <option>1</option>
                                 <option>2</option>
@@ -138,12 +130,8 @@ function Form() {
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
                                 htmlFor="telephone"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
                                 Telefono
                             </FormLabel>
@@ -154,22 +142,17 @@ function Form() {
                                 autoComplete="street-address"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             />
                         </FormControl>
 
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
                                 htmlFor="email"
-                                fontSize="sm"
-                                fontWeight="md"
-                                color="gray.700"
-                                _dark={{
-                                    color: "gray.50",
-                                }}
+                                fontSize="16px"
+                                color="#ffffff"
                             >
                                 Email de contacto
                             </FormLabel>
@@ -179,30 +162,24 @@ function Form() {
                                 id="email"
                                 mt={1}
                                 focusBorderColor="brand.400"
-                                shadow="sm"
-                                size="sm"
+                                size="md"
+                                rounded="none"
                                 w="full"
-                                rounded="md"
                             />
                         </FormControl>
                     </SimpleGrid>
                 </Stack>
                 <Box
-                    px={{
-                        base: 4,
-                        sm: 6,
-                    }}
+                    px={3}
                     py={3}
-                    bg="121212"
                     textAlign="center"
                 >
                     <Button
                         type="submit"
                         colorScheme="brand"
-                        _focus={{
-                            shadow: "",
-                        }}
-                        fontWeight="md"
+                        variant='outline'
+                        w="100%"
+                        color="#ffffff"
                     >
                         Enviar
                     </Button>

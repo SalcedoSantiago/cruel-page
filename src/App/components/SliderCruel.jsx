@@ -6,6 +6,7 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Pagination } from "swiper";
+
 import "swiper/css";
 import "swiper/css/effect-creative";
 import "swiper/css/pagination";
@@ -21,6 +22,9 @@ const SliderCruel = ({ sliderContent }) => {
             <Swiper
                 grabCursor={true}
                 effect={"creative"}
+                pagination={{
+                    type: "fraction",
+                }}
                 creativeEffect={{
                     prev: {
                         shadow: true,
@@ -30,7 +34,7 @@ const SliderCruel = ({ sliderContent }) => {
                         translate: ["100%", 0, 0],
                     },
                 }}
-                modules={[EffectCreative, Pagination]}
+                modules={[Pagination, EffectCreative]}
                 className="mySwiper"
             >
                 {

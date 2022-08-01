@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
             to: [
                 {
                     name: 'Coctelería de autor',
-                    to: 'de_autor'
+                    to: '/de_autor'
                 },
                 {
                     name: 'Tónicos',
@@ -146,7 +146,7 @@ const Layout = ({ children }) => {
                 </Box>
 
                 <Box as="footer" pt="30px" pb="60px">
-                    <Stack align={'center'} justify='center'>
+                    <Stack align={'center'} justify='center' color="#f2ecd3">
                         <Divider width={'70%'} />
                         <Image
                             src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/logo_footer_viyftc_umtzbp.svg'}
