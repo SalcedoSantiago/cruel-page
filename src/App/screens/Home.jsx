@@ -8,9 +8,10 @@ import Layout from '../components/layout'
 import Form from '../components/Form'
 import Maps from '../components/Maps'
 import { useProducts } from '../hooks'
+import { Link } from "react-router-dom";
+import { useState } from 'react'
 
 const Home = () => {
-
     const { products } = useProducts();
 
     if (!products || !Boolean(products.length)) {
@@ -21,7 +22,6 @@ const Home = () => {
         )
     }
 
-    const cocteles = products.reduce((acc, curr) => !acc.includes(curr.category) && curr.type == 'coctel' ? [...acc, curr.category] : acc, [])
 
     return (
         <>
@@ -36,7 +36,6 @@ const Home = () => {
                             justifyContent={'center'}
                             wrap='wrap'
                         >
-
                             <Image
                                 src={'https://cruel.com.ar/static/media/iconosbebidas.a67091085e861e6e81ddfcbedee04f69.svg'}
                                 alt="tragos"
@@ -44,17 +43,22 @@ const Home = () => {
                                 pb="22px"
                                 px="130px"
                             />
-                            <Heading
-                                maxW="250px"
-                                fontWeight={400}
-                                textAlign={'center'}
-                                fontSize="24px"
+                            <Box
+                                w="100%"
                             >
-                                La mejor coctelería de autor y las mejores tapas de la ciudad
-                            </Heading>
+                                <Heading
+                                    mx="auto"
+                                    maxW="250px"
+                                    fontWeight={400}
+                                    textAlign={'center'}
+                                    fontSize="24px"
+                                >
+                                    La mejor coctelería de autor y las mejores tapas de la ciudad
+                                </Heading>
+                            </Box>
                         </Flex>
                     </Box>
-                    <GridCotecels cocteles={cocteles} />
+                    <GridCotecels />
                     <Form />
                     <Image
                         src={'https://cruel.com.ar/static/media/bar.79b0ea638b56808408e9.png'}
@@ -79,6 +83,45 @@ const Home = () => {
                     <Maps />
                 </Box>
 
+                <Box as="footer" pt="30px" pb="60px">
+                    <Stack align={'center'} justify='center' color="#f2ecd3">
+                        <Divider width={'70%'} />
+                        <Link to="/">
+                            <Image
+                                src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/logo_footer_viyftc_umtzbp.svg'}
+                                alt="logo footer"
+                                w="250px"
+                            />
+                        </Link>
+                        <Text>la mejor coctelería y tapas de la ciudad</Text>
+
+                        <Stack direction={'row'} spacing={4}>
+                            <Text>
+                                INS
+                            </Text>
+                            <Text>FBOK</Text>
+                        </Stack>
+
+                        <Flex
+                            maxW={'70%'}
+                            gap={3}
+                            wrap="wrap"
+                            justifyContent={'center'}
+                            fontSize="14px"
+                            pt="20px"
+                        >
+                            <Box>Cocteles</Box>
+                            <Box>Tónicos</Box>
+                            <Box>Clásicos</Box>
+                            <Box>Wiskys</Box>
+                            <Box>Tapas</Box>
+                            <Box>Principales</Box>
+                            <Box>Postres</Box>
+                        </Flex>
+                    </Stack>
+
+
+                </Box>
 
             </Layout>
         </>

@@ -1,10 +1,22 @@
-import React from 'react'
-import { Stack, Text, Box, Image, Heading, Flex, Button, Container } from '@chakra-ui/react';
+/**
+ * External dependencies
+ */
+import React, { useState } from 'react'
+import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Divider } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'
+
+/**
+ * Internal dependencies
+ */
+import Copa from '../icons/copa';
+import Cubiertos from '../icons/cubiertos';
+
+
+
 
 const GridCotecels = () => {
 
-
+    const [currentTab, setCurrentTab] = useState('coctel');
 
     const Cocteles = [
         {
@@ -23,27 +35,75 @@ const GridCotecels = () => {
             title: 'whiskys',
             image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163821/Cruel/Whiskys_din2xx_bjdzsh.png'
         },
+    ];
+
+
+    const Platos = [
+        {
+            title: 'tapas',
+            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163820/Cruel/Tapas_ue78wj_nxgamd.png'
+        },
+        {
+            title: 'principales',
+            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163821/Cruel/Principales_t2q4q4_mdnyrb.png'
+        },
+        {
+            title: 'postres',
+            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/Postres_qqyw6n_gswboq.png'
+        },
     ]
+
 
     return (
         <Box pt={'60px'} bg="#121212" pb="60px">
-            <Heading
+            <Flex
+                justifyContent={'center'}
+                align='center'
+                wrap={'wrap'}
                 pb={'40px'}
-                textAlign={'center'}
             >
-                Cocteles
-            </Heading>
+                <Flex
+                    w="100%"
+                    justify={'center'}
+                    align='center'
+                    gap={3}
+                >
+                    <Box onClick={() => { setCurrentTab('coctel') }}>
+                        <Copa />
+                    </Box>
+                    <Heading
+                        textAlign={'center'}
+                        pb={3}
+                        display={currentTab != 'coctel' ? 'none' : 'block'}
+                    >
+                        Cócteles
+                    </Heading>
+                    <Box onClick={() => { setCurrentTab('platos') }}>
+                        <Heading
+                            textAlign={'center'}
+                            pb={3}
+                            display={currentTab == 'coctel' ? 'none' : 'block'}
+                        >
+                            Platos
+                        </Heading>
+                        <Cubiertos />
+                    </Box>
+                </Flex>
+
+                <Divider
+                    w={"50%"}
+                    color="primary"
+                />
+            </Flex>
             <Flex
                 direction={'row'}
                 wrap="wrap"
                 justifyContent={'center'}
                 gap={'20px'}
             >
-                {Cocteles.map(({ title, image }) =>
-
+                {[currentTab == 'coctel' ? Cocteles : Platos][0].map(({ title, image }) =>
                     <Box
                         key={title}
-
                         w={'calc(48% - 1rem)'}
                         cursor="pointer"
                         position="relative"

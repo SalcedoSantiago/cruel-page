@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom'
-import { Text } from '@chakra-ui/react';
+import { Text, Box } from '@chakra-ui/react';
 
-const CustomLink = ({ name, to }) => {
+const CustomLink = ({ name, to, isChild = false }) => {
 
     return (
-        <Link
-        to={to}
-        >
+        <Box as={Link} to={to} w="100%" className='normalize-link'>
             <Text
-                as="a"
-                color="black"
+                color={isChild ? 'primary' : 'secondary'}
                 fontSize={'2xl'}
                 textAlign='start'
-                w="100%"
                 cursor={'pointer'}
                 textTransform='capitalize'
+                borderBottomWidth={'2px'}
+                borderBottomStyle='solid'
+                borderBottomColor={'secondary'}
             >{name}</Text>
-        </Link>
+        </Box>
+
     )
 }
 

@@ -1,12 +1,13 @@
 /**
  * External dependencies
  */
-import { Box, Heading, Divider, Spinner, Container, Flex } from '@chakra-ui/react'
+import { Box, Heading, Divider, Spinner, Container, Flex, Stack, Image } from '@chakra-ui/react'
 import Layout from '../../App/components/layout'
 import React, { useRef, useState, useEffect } from "react";
 import SliderCruel from '../../App/components/SliderCruel'
 import { useProducts } from '../../App/hooks';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 /**
  * Internal dependencies
@@ -14,7 +15,6 @@ import { useParams } from 'react-router-dom';
 
 export default function Menu(props) {
 
-    console.log('useParams()', useParams());
     const { id } = useParams();
     const { products } = useProducts();
 
@@ -63,6 +63,20 @@ export default function Menu(props) {
                     <SliderCruel
                         sliderContent={actualSlider}
                     />
+
+                </Box>
+
+                <Box as="footer" pt="30px" pb="60px">
+                    <Stack align={'center'} justify='center' color="#f2ecd3">
+                        <Divider width={'70%'} />
+                        <Link to="/">
+                            <Image
+                                src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/logo_footer_viyftc_umtzbp.svg'}
+                                alt="logo footer"
+                                w="250px"
+                            />
+                        </Link>
+                    </Stack>
                 </Box>
             </Layout>
 

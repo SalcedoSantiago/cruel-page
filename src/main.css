@@ -14,3 +14,17 @@
     height: 70vh;
     width: 90vw;
 }
+
+.image-container-featured {
+    -webkit-box-shadow: inset 3px -12px 36px 12px rgba(66, 68, 90, 1);
+    -moz-box-shadow: inset 3px -12px 36px 12px rgba(66, 68, 90, 1);
+    box-shadow: inset 3px -12px 36px 12px rgba(66, 68, 90, 1);
+}
+
+.normalize-link {
+    text-decoration: none !important;
+}
+
+.normalize-padding {
+    padding: 5px 0 !important;
+}

@@ -38,7 +38,7 @@ const SliderCruel = ({ sliderContent }) => {
                 className="mySwiper"
             >
                 {
-                    sliderContent.map(({ image, title, desc, price }, index) =>
+                    sliderContent.map(({ image, title, description, price }, index) =>
                         <SwiperSlide
                             key={index}
                         >
@@ -49,13 +49,13 @@ const SliderCruel = ({ sliderContent }) => {
                                 alt={title}
                                 position={'relative'}
                                 borderRadius="10px"
-
                             />
                             <Box
                                 position={'absolute'}
-                                bottom={0}
+                                bottom={'10px'}
                                 borderRadius="10px"
                                 w={'100%'}
+                                color="primary"
                             >
                                 <Stack
                                     py={6}
@@ -66,14 +66,20 @@ const SliderCruel = ({ sliderContent }) => {
                                     mx="auto"
                                 >
                                     <Box
+                                        w="60%"
                                     >
                                         <Heading
-                                            fontSize="lg"
-                                        >{title}</Heading>
-                                        <Text
-                                            fontSize="sm"
+                                            textTransform={'uppercase'}
+                                            fontSize="16px"
+                                            fontWeight={500}
                                         >
-                                            {desc}
+                                            {title}
+                                        </Heading>
+                                        <Text
+                                            fontSize="14px"
+                                            fontFamily={"'Open Sans'"}
+                                        >
+                                            {description}
                                         </Text>
                                     </Box>
                                     <Box>
