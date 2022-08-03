@@ -2,11 +2,12 @@
  * External dependencies
  */
 import React, { useState } from 'react'
-import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Divider, UnorderedList, ListItem } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, Divider, UnorderedList, ListItem, DrawerFooter } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from "react-router-dom";
 import CustomLink from './CustomLink';
 import ItemsLink from './ItemsLink';
+import Redes from './Redes';
 
 /**
  * Internal dependencies
@@ -117,11 +118,22 @@ const Layout = ({ children }) => {
                                 zIndex={999999}
                                 px={0}
                             >
-                                <DrawerCloseButton />
-                                <DrawerBody py={'50px'}>
+                                <Stack
+                                    px={3}
+                                    pr={'30px'}
+                                    color='secondary'
+                                    pt={'40px'}
+                                    direction={'row'} justifyContent='space-between' alignItems={'center'}>
+                                    <Redes />
+                                    <CloseIcon
+                                        onClick={() => { toggleOpen(!isOpen) }}
+                                        cursor="pointer"
+                                        fontSize={'xl'}
+                                    />
+                                </Stack>
+                                <DrawerBody pt={'15px'}>
                                     <Stack
                                         direction={'column'}
-                                        spacing={6}
                                     >
                                         {
                                             links.map(({ name, to }, index) => {
@@ -138,6 +150,21 @@ const Layout = ({ children }) => {
                                     </Stack>
 
                                 </DrawerBody>
+                                <DrawerFooter>
+                                    <Flex
+                                        w="100%"
+                                        justifyContent={'center'}
+                                        align='center'
+                                    >
+                                        <Link to="/">
+                                            <Image
+                                                src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163816/Cruel/Frame_3_fvknac_mo1y7j.svg'}
+                                                alt="logo footer"
+                                                w="200px"
+                                            />
+                                        </Link>
+                                    </Flex>
+                                </DrawerFooter>
                             </DrawerContent>
                         </Drawer>
                     </Container>

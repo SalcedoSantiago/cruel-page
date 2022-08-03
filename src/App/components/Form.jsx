@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Container, Stack, Box, Image, Flex, Text, Heading, FormControl, FormLabel, Input, Button, Select, SimpleGrid, chakra, GridItem, Divider } from '@chakra-ui/react'
+import emailjs from '@emailjs/browser';
+
+
 
 function Form() {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        console.log('e', e);
+
+        emailjs.sendForm('service_wkxe5se', 'template_5o4uhzv', form.current, 'QW5SbamjPVKKJE6xw')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <Box pt={'60px'} pb={'30px'}>
             <Flex
@@ -23,9 +41,11 @@ function Form() {
             <chakra.form
                 method="POST"
                 overflow={"hidden"}
+                ref={form}
+                onSubmit={sendEmail}
             >
                 <Stack
-                    px={4}
+                    px={6}
                     py={5}
                     bg="#232427"
                     spacing={6}
@@ -33,7 +53,7 @@ function Form() {
                     <SimpleGrid columns={6} spacing={6}>
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
-                                htmlFor="first_name"
+                                htmlFor="from_name"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -41,8 +61,8 @@ function Form() {
                             </FormLabel>
                             <Input
                                 type="text"
-                                name="first_name"
-                                id="first_name"
+                                name="from_name"
+                                id="from_name"
                                 autoComplete="given-name"
                                 mt={1}
                                 focusBorderColor="brand.400"
@@ -88,7 +108,7 @@ function Form() {
                                 id="hora"
                                 autoComplete="email"
                                 mt={1}
-                                focusBorderColor="brand.400"
+                                focusBorderColor="blue"
                                 size="md"
                                 rounded="none"
                                 w="full"
@@ -107,23 +127,22 @@ function Form() {
                                 id="cant_person"
                                 name="cant_person"
                                 autoComplete="1"
-                                placeholder="Select option"
+                                value={1}
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
+                                color={'primary'}
                                 w="full"
                             >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+                                    (id) =>
+                                        <Box as='option'
+                                            color={'black'}
+                                        >
+                                            {id}
+                                        </Box>
+                                )}
                             </Select>
                         </FormControl>
 

@@ -10,6 +10,7 @@ import Maps from '../components/Maps'
 import { useProducts } from '../hooks'
 import { Link } from "react-router-dom";
 import { useState } from 'react'
+import Redes from '../components/Redes'
 
 const Home = () => {
     const { products } = useProducts();
@@ -95,12 +96,7 @@ const Home = () => {
                         </Link>
                         <Text>la mejor coctelería y tapas de la ciudad</Text>
 
-                        <Stack direction={'row'} spacing={4}>
-                            <Text>
-                                INS
-                            </Text>
-                            <Text>FBOK</Text>
-                        </Stack>
+                        <Redes color='primary' />
 
                         <Flex
                             maxW={'70%'}

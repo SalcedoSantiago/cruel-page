@@ -15,6 +15,10 @@
     width: 90vw;
 }
 
+.mySwiper {
+    padding-bottom: 50px;
+}
+
 .image-container-featured {
     -webkit-box-shadow: inset 3px -12px 36px 12px rgba(66, 68, 90, 1);
     -moz-box-shadow: inset 3px -12px 36px 12px rgba(66, 68, 90, 1);
@@ -27,4 +31,15 @@
 
 .normalize-padding {
     padding: 5px 0 !important;
+}
+
+.chakra-modal__body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+    font-weight: 700;
+    color: #f2ecd3;
+    font-size: 18px;
 }

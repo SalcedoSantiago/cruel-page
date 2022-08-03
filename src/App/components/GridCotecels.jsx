@@ -51,11 +51,12 @@ const GridCotecels = () => {
             title: 'postres',
             image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/Postres_qqyw6n_gswboq.png'
         },
+
     ]
 
 
     return (
-        <Box pt={'60px'} bg="#121212" pb="60px">
+        <Box pt={'60px'} bg="#121212" pb="60px" minH={'90vh'}>
             <Flex
                 justifyContent={'center'}
                 align='center'
@@ -67,55 +68,69 @@ const GridCotecels = () => {
                     justify={'center'}
                     align='center'
                     gap={3}
+                    pb={'60px'}
                 >
-                    <Tabs variant='soft-rounded'>
-                        <TabList justifyContent={'center'} alignItems='center'>
-                            <Tab>
-                                <Flex gap="15px" alignItems='center'>
-                                    <Copa />  Cócteles
-                                </Flex>
-                            </Tab>
-                            <Tab color={'primary'} >
-                                <Flex gap="15px" alignItems='center'>
-                                    <Cubiertos />  Platos
-                                </Flex>
-                            </Tab>
-                        </TabList>
-
-                        <TabPanels>
-                            <TabPanel w={'full'}>
-                                <Flex
-                                    direction={'row'}
-                                    wrap="wrap"
-                                    justifyContent={'space-between'}
-                                    gap={'20px'}
-                                >
-                                    {Cocteles.map(({ title, image }) =>
-                                        <CardGrid key={title} title={title} image={image} />
-                                    )
-                                    }
-                                </Flex>
-
-                            </TabPanel>
-
-                            <TabPanel w={'full'}>
-                                <Flex
-                                    direction={'row'}
-                                    wrap="wrap"
-                                    justifyContent={'space-between'}
-                                    gap={'20px'}
-                                >
-                                    {Platos.map(({ title, image }) =>
-                                        <CardGrid key={title} title={title} image={image} />
-                                    )
-                                    }
-                                </Flex>
-                            </TabPanel>
-                        </TabPanels>
-                    </Tabs>
+                    {['coctel', 'platos'].map((title) =>
+                        <Flex
+                            gap="15px"
+                            alignItems='center'
+                            w="auto"
+                            px={'30px'}
+                            fontSize={'18px'}
+                            fontWeight={700}
+                            py={'15px'}
+                            borderRadius={'15px'}
+                            onClick={() => { title != currentTab && setCurrentTab(title) }}
+                            bgColor={title == currentTab ? 'primary' : 'transparent'}
+                            color={title == currentTab ? 'dark' : 'primary'}
+                            textTransform="capitalize"
+                            cursor="pointer"
+                        >
+                            {title == 'coctel' ? <Cubiertos /> : <Copa />}   {title == 'coctel' ? 'Cocteles' : 'Platos'}
+                        </Flex>
+                    )
+                    }
                 </Flex>
+
+
+                {
+
+                    currentTab == 'coctel' &&
+                    <Flex
+                        w={'100%'}
+                        wrap="wrap"
+                        justifyContent={'space-between'}
+                        gap={'15px'}
+                        px={3}
+                    // display={currentTab == 'coctel' ? 'flex' : 'none'}
+                    >
+                        {Cocteles.map(({ title, image }, index) =>
+                            <CardGrid key={title} title={title} image={image} index={index} />
+                        )
+                        }
+                    </Flex>
+                }
+                {
+                    currentTab == 'platos' &&
+
+                    <Flex
+                        wrap="wrap"
+                        justifyContent={'space-between'}
+                        gap={'15px'}
+                        w={'100%'}
+                        px={3}
+                    // display={currentTab == 'platos' ? 'flex' : 'none'}
+                    >
+                        {Platos.map(({ title, image }, index) =>
+                            <CardGrid key={title} title={title} image={image} index={index} />
+                        )
+                        }
+                    </Flex>
+                }
+
+
             </Flex>
-         
+
         </Box >
 
 

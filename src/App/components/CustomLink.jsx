@@ -4,17 +4,23 @@ import { Text, Box } from '@chakra-ui/react';
 const CustomLink = ({ name, to, isChild = false }) => {
 
     return (
-        <Box as={Link} to={to} w="100%" className='normalize-link'>
+        <Box as={Link} to={to} w="100%" className='normalize-link'
+            px={3}
+        >
             <Text
                 color={isChild ? 'primary' : 'secondary'}
-                fontSize={'2xl'}
+                fontSize={'lg'}
                 textAlign='start'
                 cursor={'pointer'}
                 textTransform='capitalize'
-                borderBottomWidth={'2px'}
+                borderBottomWidth={!isChild && '2px'}
                 borderBottomStyle='solid'
                 borderBottomColor={'secondary'}
-            >{name}</Text>
+                px={3}
+                py={4}
+            >
+                {name}
+            </Text>
         </Box>
 
     )

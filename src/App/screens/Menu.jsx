@@ -66,8 +66,8 @@ export default function Menu(props) {
 
                 </Box>
 
-                <Box as="footer" pt="30px" pb="60px">
-                    <Stack align={'center'} justify='center' color="#f2ecd3">
+                <Box as="footer" pt="10px" pb="60px">
+                    <Stack align={'center'} justify='center' color="#f2ecd3"  >
                         <Divider width={'70%'} />
                         <Link to="/">
                             <Image
