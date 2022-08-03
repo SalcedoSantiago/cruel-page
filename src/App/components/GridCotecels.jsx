@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React, { useState } from 'react'
-import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Divider } from '@chakra-ui/react';
+import { Stack, Text, Box, Image, Heading, Flex, Button, Container, Divider, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'
 
 /**
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
  */
 import Copa from '../icons/copa';
 import Cubiertos from '../icons/cubiertos';
-
+import CardGrid from './CardGrid'
 
 
 
@@ -68,78 +68,54 @@ const GridCotecels = () => {
                     align='center'
                     gap={3}
                 >
-                    <Box onClick={() => { setCurrentTab('coctel') }}>
-                        <Copa />
-                    </Box>
-                    <Heading
-                        textAlign={'center'}
-                        pb={3}
-                        display={currentTab != 'coctel' ? 'none' : 'block'}
-                    >
-                        Cócteles
-                    </Heading>
-                    <Box onClick={() => { setCurrentTab('platos') }}>
-                        <Heading
-                            textAlign={'center'}
-                            pb={3}
-                            display={currentTab == 'coctel' ? 'none' : 'block'}
-                        >
-                            Platos
-                        </Heading>
-                        <Cubiertos />
-                    </Box>
+                    <Tabs variant='soft-rounded'>
+                        <TabList justifyContent={'center'} alignItems='center'>
+                            <Tab>
+                                <Flex gap="15px" alignItems='center'>
+                                    <Copa />  Cócteles
+                                </Flex>
+                            </Tab>
+                            <Tab color={'primary'} >
+                                <Flex gap="15px" alignItems='center'>
+                                    <Cubiertos />  Platos
+                                </Flex>
+                            </Tab>
+                        </TabList>
+
+                        <TabPanels>
+                            <TabPanel w={'full'}>
+                                <Flex
+                                    direction={'row'}
+                                    wrap="wrap"
+                                    justifyContent={'space-between'}
+                                    gap={'20px'}
+                                >
+                                    {Cocteles.map(({ title, image }) =>
+                                        <CardGrid key={title} title={title} image={image} />
+                                    )
+                                    }
+                                </Flex>
+
+                            </TabPanel>
+
+                            <TabPanel w={'full'}>
+                                <Flex
+                                    direction={'row'}
+                                    wrap="wrap"
+                                    justifyContent={'space-between'}
+                                    gap={'20px'}
+                                >
+                                    {Platos.map(({ title, image }) =>
+                                        <CardGrid key={title} title={title} image={image} />
+                                    )
+                                    }
+                                </Flex>
+                            </TabPanel>
+                        </TabPanels>
+                    </Tabs>
                 </Flex>
-
-                <Divider
-                    w={"50%"}
-                    color="primary"
-                />
             </Flex>
-            <Flex
-                direction={'row'}
-                wrap="wrap"
-                justifyContent={'center'}
-                gap={'20px'}
-            >
-                {[currentTab == 'coctel' ? Cocteles : Platos][0].map(({ title, image }) =>
-                    <Box
-                        key={title}
-                        w={'calc(48% - 1rem)'}
-                        cursor="pointer"
-                        position="relative"
-                        borderRadius={'10px'}
-                    >
-                        <Link
-                            key={title}
-                            to={`/menu/${title}`}
-                        >
-                            <Image
-                                w="100%"
-                                h="100%"
-                                src={image}
-                                alt={title}
-                                borderRadius={'10px'}
-
-                            />
-                            <Heading
-                                textTransform={'uppercase'}
-                                position="absolute"
-                                top={'50%'}
-                                fontSize='lg'
-                                color={'primary'}
-                                zIndex={2}
-                                textAlign='center'
-                                w="100%"
-                            >
-                                {title.split('_').join(' ')}
-                            </Heading>
-                        </Link>
-
-                    </Box>
-                )
-                }
-
-            </Flex >
+         
         </Box >
 
 
