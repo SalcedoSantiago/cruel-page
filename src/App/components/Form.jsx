@@ -9,19 +9,20 @@ function Form() {
 
     const sendEmail = (e) => {
         e.preventDefault();
+        const currentForm = e.target;
+        const name = currentForm.querySelector('#name_reserva').value;
+        const dia = currentForm.querySelector('#dia_reserva').value.split('-').slice(1); // sanitizar
+        const hora = currentForm.querySelector('#hora_reserva').value;
+        const cantPersonas = currentForm.querySelector('#cant_person').value;
+        const email = currentForm.querySelector('#email_reserva').value;
+        const numeroTel = currentForm.querySelector('#tel_reserva').value;
 
-        console.log('e', e);
+        window.open(`https://api.whatsapp.com/send/?phone=542216401592&text=Me+gustaria+hacer+una+reserva+para+el+${dia[1] + '/' + dia[0]}+a+las+${hora}+para+${cantPersonas}+personas.%0AA+nombre+de+${name}.%0Aemail%3A+${email}%0Atelefono%3A+${numeroTel}&type=phone_number&app_absent=0`, '_blank');
 
-        emailjs.sendForm('service_wkxe5se', 'template_5o4uhzv', form.current, 'QW5SbamjPVKKJE6xw')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
     };
 
     return (
-        <Box pt={'60px'} pb={'30px'}>
+        <Box pt={'60px'} pb={'30px'} id="reserva">
             <Flex
                 justifyContent={'center'}
                 align={'center'}
@@ -53,7 +54,7 @@ function Form() {
                     <SimpleGrid columns={6} spacing={6}>
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
-                                htmlFor="from_name"
+                                htmlFor="name_reserva"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -61,20 +62,21 @@ function Form() {
                             </FormLabel>
                             <Input
                                 type="text"
-                                name="from_name"
-                                id="from_name"
+                                name="name_reserva"
+                                id="name_reserva"
                                 autoComplete="given-name"
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
                                 w="full"
+                                required
                             />
                         </FormControl>
 
                         <FormControl as={GridItem} colSpan={4}>
                             <FormLabel
-                                htmlFor="email_address"
+                                htmlFor="dia_reserva"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -83,20 +85,20 @@ function Form() {
                             <Input
                                 type="date"
                                 min="2022-07-31"
-                                name="email_address"
-                                id="email_address"
-                                autoComplete="email"
+                                name="dia_reserva"
+                                id="dia_reserva"
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
+                                required
                                 w="full"
                             />
                         </FormControl>
 
                         <FormControl as={GridItem} colSpan={8}>
                             <FormLabel
-                                htmlFor="hora"
+                                htmlFor="hora_reserva"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -104,13 +106,13 @@ function Form() {
                             </FormLabel>
                             <Input
                                 type="time"
-                                name="hora"
-                                id="hora"
-                                autoComplete="email"
+                                name="hora_reserva"
+                                id="hora_reserva"
                                 mt={1}
                                 focusBorderColor="blue"
                                 size="md"
                                 rounded="none"
+                                required
                                 w="full"
                             />
                         </FormControl>
@@ -127,17 +129,18 @@ function Form() {
                                 id="cant_person"
                                 name="cant_person"
                                 autoComplete="1"
-                                value={1}
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
                                 color={'primary'}
+                                required
                                 w="full"
                             >
                                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
                                     (id) =>
                                         <Box as='option'
+                                            key={id}
                                             color={'black'}
                                         >
                                             {id}
@@ -148,7 +151,7 @@ function Form() {
 
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
-                                htmlFor="telephone"
+                                htmlFor="tel_reserva"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -156,20 +159,21 @@ function Form() {
                             </FormLabel>
                             <Input
                                 type="tel"
-                                name="telephone"
-                                id="telephone"
+                                name="tel_reserva"
+                                id="tel_reserva"
                                 autoComplete="street-address"
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
+                                required
                                 w="full"
                             />
                         </FormControl>
 
                         <FormControl as={GridItem} colSpan={12}>
                             <FormLabel
-                                htmlFor="email"
+                                htmlFor="email_reserva"
                                 fontSize="16px"
                                 color="#ffffff"
                             >
@@ -177,12 +181,13 @@ function Form() {
                             </FormLabel>
                             <Input
                                 type="email"
-                                name="email"
-                                id="email"
+                                name="email_reserva"
+                                id="email_reserva"
                                 mt={1}
                                 focusBorderColor="brand.400"
                                 size="md"
                                 rounded="none"
+                                required
                                 w="full"
                             />
                         </FormControl>

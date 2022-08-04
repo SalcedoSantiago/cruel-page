@@ -105,14 +105,41 @@ const Home = () => {
                             justifyContent={'center'}
                             fontSize="14px"
                             pt="20px"
+                            color="primary"
                         >
-                            <Box>Cocteles</Box>
-                            <Box>Tónicos</Box>
-                            <Box>Clásicos</Box>
-                            <Box>Wiskys</Box>
-                            <Box>Tapas</Box>
-                            <Box>Principales</Box>
-                            <Box>Postres</Box>
+                            <Link to="menu/tonicos"
+                                className='normalize-link'
+                            >
+                                <Box
+                                    color="primary"
+                                >
+                                    Tónicos
+                                </Box>
+                            </Link>
+                            <Link to="menu/clasicos"
+
+                                className='normalize-link'
+                            >
+                                <Box color="primary">
+                                    Clásicos
+                                </Box>
+                            </Link>
+                            <Link to="menu/whiskys" className='normalize-link'>
+                                <Box color="primary">
+                                    Whiskys
+                                </Box>
+                            </Link>
+                            <Link to="menu/principales" className='normalize-link'>
+                                <Box color="primary">
+                                    Principales
+                                </Box>
+                            </Link>
+
+                            <Link to="menu/postres" className='normalize-link'>
+                                <Box color="primary">
+                                    Postres
+                                </Box>
+                            </Link>
                         </Flex>
                     </Stack>
 

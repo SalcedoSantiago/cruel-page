@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import CustomLink from './CustomLink';
 import ItemsLink from './ItemsLink';
 import Redes from './Redes';
+import Logo from '../icons/logo';
 
 /**
  * Internal dependencies
@@ -15,6 +16,7 @@ import Redes from './Redes';
 
 
 const Layout = ({ children }) => {
+
     const [isOpen, toggleOpen] = useState(false);
 
 
@@ -63,11 +65,12 @@ const Layout = ({ children }) => {
             ]
         },
         {
-            name: 'Reserva',
-            to: '/home#reserva'
+            name: 'reserva',
+            to: '/#reserva'
         },
 
     ]
+
 
 
     return (
@@ -87,11 +90,7 @@ const Layout = ({ children }) => {
                         <Stack direction={'row'} justifyContent='space-between' align={'center'}>
                             <Box cursor={'pointer'}>
                                 <Link to="/">
-                                    <Image
-                                        src={'https://cruel.com.ar/static/media/logo.afcaceeebf1bd75aed2b41c59ef29a77.svg'}
-                                        alt="Picture of the author"
-                                        width={'160px'}
-                                    />
+                                    <Logo />
                                 </Link>
                             </Box>
                             <Box cursor={'pointer'}>
@@ -142,8 +141,6 @@ const Layout = ({ children }) => {
                                                 }
 
                                                 return (<CustomLink key={name + index} name={name} to={to} />)
-
-
                                             }
                                             )
                                         }

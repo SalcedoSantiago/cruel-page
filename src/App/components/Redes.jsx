@@ -17,7 +17,7 @@ const Redes = ({ color = 'secondary' }) => {
         >
             <Box
                 as="a"
-                href='https://www.instagram.com/cruel.barramorfi/?hl=es'
+                href='https://www.facebook.com/Cruelbarramorfi/'
                 target={'_blank'}
                 cursor="pointer"
                 color={color}
@@ -29,7 +29,7 @@ const Redes = ({ color = 'secondary' }) => {
                 cursor="pointer"
                 as="a"
                 className='normalize-link'
-                href='https://www.facebook.com/Cruelbarramorfi/'
+                href='https://www.instagram.com/cruel.barramorfi/?hl=es'
                 target={'_blank'}
                 color={color}
             >

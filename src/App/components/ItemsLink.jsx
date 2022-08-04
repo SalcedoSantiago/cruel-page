@@ -52,8 +52,8 @@ const ItemsLink = ({ childLinks, title }) => {
                             }}
                             exit={{ opacity: 0 }}
                         >
-                            {childLinks.map(({ name, to }) =>
-                                <Box key={name} lineHeight='1' textAlign='start' h={'auto'} bgColor={'#2e3b4eb8'} px={3} _hover={{ bgColor: '#657792b8' }}>
+                            {childLinks.map(({ name, to }, index) =>
+                                <Box key={`${name}+ ${index}`} lineHeight='1' textAlign='start' h={'auto'} bgColor={'#2e3b4eb8'} px={3} _hover={{ bgColor: '#657792b8' }}>
                                     <CustomLink name={name} to={to} isChild={true} />
                                 </Box>
                             )

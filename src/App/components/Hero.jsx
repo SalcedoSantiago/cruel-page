@@ -9,6 +9,12 @@ import { Pagination } from "swiper";
  * Internal dependencies
  */
 
+import Hero1 from '../../assets/hero1.png';
+import Hero2 from '../../assets/hero2.png';
+import Hero3 from '../../assets/hero3.png';
+
+
+
 const Hero = () => {
     return (
         <Box
@@ -24,7 +30,7 @@ const Hero = () => {
             >
                 <SwiperSlide>
                     <Image
-                        src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163820/Cruel/2x1_ananib_bu5vog.png'}
+                        src={Hero1}
                         w="100%"
                         h="100vh"
                         alt="banner 1"
@@ -48,7 +54,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image
-                        src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163823/Cruel/MenuCruel_sratgs_lnulba.png'}
+                        src={Hero2}
                         w="100%"
                         h="100vh"
                         alt="banner 1"
@@ -84,7 +90,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <Image
-                        src={'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163820/Cruel/Dj_fodlnh_onne91.png'}
+                        src={Hero3}
                         w="100%"
                         h="100vh"
                         alt="banner 1"

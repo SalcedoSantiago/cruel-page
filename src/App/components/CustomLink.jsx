@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 import { Text, Box } from '@chakra-ui/react';
+import { HashLink } from 'react-router-hash-link';
 
 const CustomLink = ({ name, to, isChild = false }) => {
 
     return (
-        <Box as={Link} to={to} w="100%" className='normalize-link'
+        <Box
+            as={name == 'reserva' ? HashLink : Link}
+            to={to}
+            w="100%"
             px={3}
+            className='normalize-link'
         >
             <Text
                 color={isChild ? 'primary' : 'secondary'}

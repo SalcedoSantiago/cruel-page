@@ -1,5 +1,6 @@
 {
   "name": "cruel-page",
+  "homepage": "https://c1801477.ferozo.com/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,6 +23,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
+    "react-router-hash-link": "^2.4.3",
+    "react-scroll": "^1.8.7",
     "swiper": "^8.3.2"
   },
   "devDependencies": {

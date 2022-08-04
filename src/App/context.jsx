@@ -9,21 +9,12 @@ function ProductsProvider({ children }) {
     const updateProducts = (prods) => setProducts(prods);
 
     useEffect(() => {
-        console.log('testing');
-        const testing = async () => {
+        const gepProducts = async () => {
             const test = await Api.list();
             setProducts(test)
-            localStorage.setItem('products', JSON.stringify(test));
         }
 
-        const preloadProducts = JSON.parse(localStorage.getItem('products'));
-
-        if (preloadProducts) {
-            setProducts(preloadProducts)
-        } else {
-            testing();
-        }
-
+        gepProducts();
     }, [])
 
 

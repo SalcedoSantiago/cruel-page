@@ -12,6 +12,13 @@ import Copa from '../icons/copa';
 import Cubiertos from '../icons/cubiertos';
 import CardGrid from './CardGrid'
 
+import tonicos from '../../assets/tonicos.png'
+import clasicos from '../../assets/clasicos.png'
+import whiskys from '../../assets/whiskys.png'
+import de_autor from '../../assets/de-autor.png'
+import tapas from '../../assets/tapas.png'
+import principales from '../../assets/principales.png'
+import postres from '../../assets/postres.png'
 
 
 const GridCotecels = () => {
@@ -21,19 +28,19 @@ const GridCotecels = () => {
     const Cocteles = [
         {
             title: 'de_autor',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163815/Cruel/Cocteles_fify97_x1ccxv.png'
+            image: de_autor
         },
         {
             title: 'tonicos',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163821/Cruel/Tonicos_j6wdog_qs5sqa.png'
+            image: tonicos
         },
         {
             title: 'clasicos',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163815/Cruel/Clasicos_vin7c1_p4h0lk.png'
+            image: clasicos
         },
         {
             title: 'whiskys',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163821/Cruel/Whiskys_din2xx_bjdzsh.png'
+            image: whiskys
         },
     ];
 
@@ -41,15 +48,15 @@ const GridCotecels = () => {
     const Platos = [
         {
             title: 'tapas',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163820/Cruel/Tapas_ue78wj_nxgamd.png'
+            image: tapas
         },
         {
             title: 'principales',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163821/Cruel/Principales_t2q4q4_mdnyrb.png'
+            image: principales
         },
         {
             title: 'postres',
-            image: 'https://res.cloudinary.com/dxazbcpkr/image/upload/v1658163818/Cruel/Postres_qqyw6n_gswboq.png'
+            image: postres
         },
 
     ]
@@ -72,6 +79,7 @@ const GridCotecels = () => {
                 >
                     {['coctel', 'platos'].map((title) =>
                         <Flex
+                            key={title}
                             gap="15px"
                             alignItems='center'
                             w="auto"
